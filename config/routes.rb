@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   get 'example' => 'example#index'
+  root 'employees#index'
+  namespace :api do
+    resources :employees, defaults: { format: :json }
+  end
   # root to: 'application#angular'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

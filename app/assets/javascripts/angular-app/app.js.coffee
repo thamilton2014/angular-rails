@@ -1,13 +1,12 @@
 @app = angular.module('app', [
-  # additinal dependencies here, such as restangular
+  'restangular'
   'templates'
 ])
 
-# for compatibility with rails CSRF protection
-
 @app.config([
   '$httpProvider', ($httpProvider)->
-    $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = $('meta[name=csrf-token').attr('content')
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] =
+      $('meta[name=csrf-token]').attr('content')
 ])
 
 @app.run(->

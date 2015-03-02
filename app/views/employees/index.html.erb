@@ -1,0 +1,20 @@
+<h1>Employees#index</h1>
+<p>Find me in app/views/employees/index.html.erb</p>
+<div ng-app='app.employeeApp' ng-controller='EmployeeListCtrl'>
+  <table ng-if="employees">
+    <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>SSN</th>
+    <th>Salary</th>
+    </thead>
+    <tbody>
+    <tr ng-repeat="employee in employees">
+      <td>{{employee.name}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.ssn}}</td>
+      <td>{{employee.salary | currency}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
