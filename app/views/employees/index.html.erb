@@ -1,19 +1,24 @@
-<h1>Employees#index</h1>
-<p>Find me in app/views/employees/index.html.erb</p>
-<div ng-app='app.employeeApp' ng-controller='EmployeeListCtrl'>
-  <table ng-if="employees">
+<div ng-app='app.employeeApp' ng-controller='EmployeeListCtrl' class="col-xs-8">
+  <h1>Employees List</h1>
+  <a ng-click="newEmployee(employee)" class="btn btn-sm btn-primary">Create</a>
+  <table ng-if="employees" class="table table-striped">
     <thead>
-    <th>Name</th>
-    <th>Email</th>
-    <th>SSN</th>
-    <th>Salary</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>SSN</th>
+        <th>Salary</th>
+        <th>Actions</th>
     </thead>
     <tbody>
     <tr ng-repeat="employee in employees">
       <td>{{employee.name}}</td>
       <td>{{employee.email}}</td>
-      <td>{{employee.ssn}}</td>
+      <td>{{employee.ssn | empMaskNumber: 4 }}</td>
       <td>{{employee.salary | currency}}</td>
+      <td>
+        <a ng-click="editEmployee(employee)">Edit</a>
+        <a ng-click="showEmployee(employee)">Show</a>
+      </td>
     </tr>
     </tbody>
   </table>

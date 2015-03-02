@@ -8,8 +8,32 @@ class Api::EmployeesController < ApplicationController
     render json: serialized_employees
   end
 
+  def create
+    employee = Employee.new(employee_params)
+    if employee.save
+      render json: employee.as_json, status: :ok
+    else
+      render json: employee.errors.messages, status: 406
+    end
+  end
+
+  def new
+    employee = Employee.new(employee_params)
+    if employee.save
+      render json: employee.as_json, status: :ok
+    else
+      render json: employee.errors.messages, status: 406
+    end
+  end
+
+  def show
+    employee = Employee.find(params[:id])
+    render json: employee
+  end
+
   def update
     employee = Employee.find(params[:id])
+
     if employee.update(employee_params)
       render json: employee
     else

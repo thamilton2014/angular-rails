@@ -9,6 +9,6 @@ angular.module('app.employeeApp')
       Restangular.extendModel(model, (obj)->
         angular.extend(obj, Employee)
       )
+      list: () -> Restangular.all(model).getList()
 
-      list: ()     -> Restangular.all(model).getList()
   ])
