@@ -57,8 +57,18 @@ p {
   line-height: 1.7em;
 }
 
-/* header */
+/* table style */
+#example-table-h {
+  font-size: 1.5em;
+  letter-spacing: -.5px;
+}
 
+#example-table-b {
+  font-size: 1.25em;
+  letter-spacing: -.5px;
+}
+
+/* header */
 #logo {
   float: left;
   margin-right: 10px;

@@ -1,6 +1,6 @@
 angular.module('app.employeeApp').controller("EmployeeListCtrl", [
-  '$scope', 'EmployeeService', '$modal',
-  ($scope, EmployeeService, $modal)->
+  '$scope', 'Restangular','EmployeeService', '$modal',
+  ($scope, Restangular, EmployeeService, $modal)->
 
     $scope.editEmployee = (employee) ->
       $modal.open({
@@ -31,6 +31,10 @@ angular.module('app.employeeApp').controller("EmployeeListCtrl", [
           employee: ->
             employee
       })
+
+    $scope.deleteEmployee = (employee) ->
+      employee.remove()
+      $scope.employees = _.without($scope.employees, employee)
 
     EmployeeService.list().then((employees) ->
       $scope.employees = employees

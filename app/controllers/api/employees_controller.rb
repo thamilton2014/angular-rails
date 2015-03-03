@@ -41,6 +41,15 @@ class Api::EmployeesController < ApplicationController
     end
   end
 
+  def destroy
+    employee = Employee.find(params[:id])
+    if employee.destroy
+      render json: 'complete', status: :ok
+    else
+      render json: employee.errors.messages, status: :bad_request
+    end
+  end
+
   private
 
   def employee_params

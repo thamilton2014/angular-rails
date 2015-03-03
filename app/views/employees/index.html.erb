@@ -1,23 +1,24 @@
-<div ng-app='app.employeeApp' ng-controller='EmployeeListCtrl' class="col-xs-8">
+<div ng-app='app.employeeApp' ng-controller='EmployeeListCtrl' class="col-xs-10">
   <h1>Employees List</h1>
   <a ng-click="newEmployee(employee)" class="btn btn-sm btn-primary">Create</a>
   <table ng-if="employees" class="table table-striped">
-    <thead>
+    <thead id="example-table-h">
         <th>Name</th>
         <th>Email</th>
         <th>SSN</th>
         <th>Salary</th>
         <th>Actions</th>
     </thead>
-    <tbody>
+    <tbody id="example-table-b">
     <tr ng-repeat="employee in employees">
       <td>{{employee.name}}</td>
       <td>{{employee.email}}</td>
       <td>{{employee.ssn | empMaskNumber: 4 }}</td>
       <td>{{employee.salary | currency}}</td>
-      <td>
-        <a ng-click="editEmployee(employee)">Edit</a>
-        <a ng-click="showEmployee(employee)">Show</a>
+      <td class="btn-group">
+        <a ng-click="editEmployee(employee)" class="btn btn-success">Edit</a>
+        <a ng-click="showEmployee(employee)" class="btn btn-info">Show</a>
+        <a ng-click="deleteEmployee(employee)" class="btn btn-danger">Delete</a>
       </td>
     </tr>
     </tbody>
